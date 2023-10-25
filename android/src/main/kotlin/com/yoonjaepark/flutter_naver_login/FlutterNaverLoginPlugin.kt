@@ -173,6 +173,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+    println("onReattachedToActivityForConfigChanges +++");
     onAttachedToActivity(binding)
   }
 
@@ -222,6 +223,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val obj = JSONObject(res)
       var resultProfile = jsonObjectToMap(obj.getJSONObject("response"))
       resultProfile["status"] = "loggedIn"
+      println("currentAccount success " + resultProfile);
       result.success(resultProfile)
     } catch (e: InterruptedException) {
       e.printStackTrace()
