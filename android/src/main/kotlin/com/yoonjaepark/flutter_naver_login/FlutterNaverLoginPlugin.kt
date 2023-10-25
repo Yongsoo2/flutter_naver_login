@@ -173,7 +173,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    println("onReattachedToActivityForConfigChanges +++");
+    println("===== onReattachedToActivityForConfigChanges +++");
     onAttachedToActivity(binding)
   }
 
@@ -198,6 +198,7 @@ class FlutterNaverLoginPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       METHOD_LOG_OUT -> this.logout(result)
       METHOD_LOG_OUT_DELETE_TOKEN -> this.logoutAndDeleteToken(result)
       METHOD_GET_TOKEN -> {
+        println("===== METHOD_GET_TOKEN 로그인 시도 +++");
         result.success(object : HashMap<String, String>() {
           init {
             put("status", "getToken")
